@@ -1,0 +1,39 @@
+2026/10/28-21:22:40.065 68ac Reusing MANIFEST D:\Projects\US_VISA\Us_Visa_Bot_without API\si_visa_wo_api\chrome_profile_Bhavishya001\Default\Session Storage/MANIFEST-000001
+2026/10/28-21:22:40.067 68ac Recovering log #118
+2026/10/28-21:22:40.069 68ac Reusing old log D:\Projects\US_VISA\Us_Visa_Bot_without API\si_visa_wo_api\chrome_profile_Bhavishya001\Default\Session Storage/000118.log 
+2026/10/28-23:20:54.429 4174 Level-0 table #122: started
+2026/10/28-23:20:54.443 4174 Level-0 table #122: 16264 bytes OK
+2026/10/28-23:20:54.445 4174 Delete type=0 #118
+2026/10/28-23:20:54.445 68ac Compacting 4@0 + 1@1 files
+2026/10/28-23:20:54.452 68ac Generated table #123@0: 6 keys, 2094 bytes
+2026/10/28-23:20:54.452 68ac Compacted 4@0 + 1@1 files => 2094 bytes
+2026/10/28-23:20:54.452 68ac compacted to: files[ 0 1 0 0 0 0 0 ]
+2026/10/28-23:20:54.453 68ac Delete type=2 #111
+2026/10/28-23:20:54.453 68ac Delete type=2 #113
+2026/10/28-23:20:54.453 68ac Delete type=2 #115
+2026/10/28-23:20:54.453 68ac Delete type=2 #119
+2026/10/28-23:20:54.453 68ac Delete type=2 #122
+2026/10/29-00:41:57.015 4174 Level-0 table #125: started
+2026/10/29-00:41:57.020 4174 Level-0 table #125: 16372 bytes OK
+2026/10/29-00:41:57.021 4174 Delete type=0 #121
+2026/10/29-01:50:53.315 68ac Level-0 table #127: started
+2026/10/29-01:50:53.320 68ac Level-0 table #127: 14809 bytes OK
+2026/10/29-01:50:53.321 68ac Delete type=0 #124
+2026/10/29-03:06:22.631 4174 Level-0 table #129: started
+2026/10/29-03:06:22.638 4174 Level-0 table #129: 15605 bytes OK
+2026/10/29-03:06:22.639 4174 Delete type=0 #126
+2026/10/29-05:36:49.229 4174 Level-0 table #131: started
+2026/10/29-05:36:49.257 4174 Level-0 table #131: 15800 bytes OK
+2026/10/29-05:36:49.258 4174 Delete type=0 #128
+2026/10/29-05:36:49.258 4174 Compacting 4@0 + 1@1 files
+2026/10/29-05:36:49.268 4174 Generated table #132@0: 6 keys, 2187 bytes
+2026/10/29-05:36:49.268 4174 Compacted 4@0 + 1@1 files => 2187 bytes
+2026/10/29-05:36:49.268 4174 compacted to: files[ 0 1 0 0 0 0 0 ]
+2026/10/29-05:36:49.268 4174 Delete type=2 #123
+2026/10/29-05:36:49.269 4174 Delete type=2 #125
+2026/10/29-05:36:49.269 4174 Delete type=2 #127
+2026/10/29-05:36:49.269 4174 Delete type=2 #129
+2026/10/29-05:36:49.269 4174 Delete type=2 #131
+2026/10/29-08:28:34.385 4174 Level-0 table #134: started
+2026/10/29-08:28:34.389 4174 Level-0 table #134: 15704 bytes OK
+2026/10/29-08:28:34.390 4174 Delete type=0 #130

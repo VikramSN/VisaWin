@@ -1,0 +1,136 @@
+import logging
+import queue
+import threading
+import os
+import atexit
+from datetime import datetime, timezone
+from pymongo import MongoClient, ASCENDING
+
+from src.common.utils import LOG_TIME_FORMAT
+
+
+class MongoDBLogger:
+    _instance = None
+    _lock = threading.Lock()
+
+    def __new__(cls):
+        with cls._lock:
+            if cls._instance is None:
+                cls._instance = super(MongoDBLogger, cls).__new__(cls)
+                cls._instance._init_logger()
+            return cls._instance
+
+    def _init_logger(self):
+        self.queue = queue.Queue()
+        self.flush_interval = 1800
+        self.batch_size = 500
+        self.running = True
+
+        mongo_uri = os.getenv("MONGO_URI", "").strip()
+        if not mongo_uri or not (mongo_uri.startswith("mongodb://") or mongo_uri.startswith("mongodb+srv://")):
+            self.collection = None
+            self.logging_enabled = False
+            return
+
+        db_name = os.getenv("MONGODB_DATABASE_NAME", "LeSo")
+
+        try:
+            self.client = MongoClient(mongo_uri)
+            self.db = self.client[db_name]
+            self.collection = self.db["logs"]
+            self.collection.create_index([("createdAt", ASCENDING)], expireAfterSeconds=172800)
+        except Exception as e:
+            print(f"Failed to initialize MongoDB connection: {e}")
+            self.collection = None
+
+        self.logging_enabled = True
+        self.thread = threading.Thread(target=self._flush_thread, daemon=True)
+        self.thread.start()
+        atexit.register(self.flush)
+
+    def _flush_thread(self):
+        while self.running:
+            batch = []
+            try:
+                item = self.queue.get(timeout=self.flush_interval)
+                batch.append(item)
+                while len(batch) < self.batch_size:
+                    try:
+                        item = self.queue.get_nowait()
+                        batch.append(item)
+                    except queue.Empty:
+                        break
+            except queue.Empty:
+                pass
+
+            if batch:
+                self._insert_batch(batch)
+
+    def _insert_batch(self, batch):
+        if self.collection is None:
+            return
+        try:
+            self.collection.insert_many(batch, ordered=False)
+        except Exception as e:
+            print(f"Failed to insert logs to MongoDB: {e}")
+
+    def log(self, record):
+        if not getattr(self, 'logging_enabled', True):
+            return
+        doc = {
+            "createdAt": datetime.now(timezone.utc),
+            "level": record.levelname,
+            "message": record.getMessage(),
+            "name": record.name,
+            "module": record.module,
+            "line": record.lineno,
+        }
+        self.queue.put(doc)
+
+    def log_browser_console(self, timestamp_str, level, customer, message):
+        if not getattr(self, 'logging_enabled', True):
+            return
+        try:
+            dt = datetime.strptime(timestamp_str, LOG_TIME_FORMAT)
+            dt = dt.replace(tzinfo=timezone.utc)
+        except Exception:
+            try:
+                dt = datetime.strptime(timestamp_str, "%Y-%m-%d %H:%M:%S")
+                dt = dt.replace(tzinfo=timezone.utc)
+            except Exception:
+                dt = datetime.now(timezone.utc)
+
+        doc = {
+            "createdAt": dt,
+            "level": level,
+            "message": message,
+            "name": "browser_console",
+            "customer": customer
+        }
+        self.queue.put(doc)
+
+    def toggle_logging(self, enable: bool):
+        self.logging_enabled = enable
+
+    def flush(self):
+        self.running = False
+        batch = []
+        while not self.queue.empty():
+            try:
+                batch.append(self.queue.get_nowait())
+            except queue.Empty:
+                break
+        if batch:
+            self._insert_batch(batch)
+
+
+class MongoDBHandler(logging.Handler):
+    def __init__(self):
+        super().__init__()
+        self.db_logger = MongoDBLogger()
+
+    def emit(self, record):
+        try:
+            self.db_logger.log(record)
+        except Exception:
+            self.handleError(record)

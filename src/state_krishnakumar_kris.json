@@ -1,0 +1,60 @@
+{
+  "booking_running": false,
+  "customer_name": "krishnakumar_kris",
+  "waitingForConsular": false,
+  "bookedOfcDate": null,
+  "waitStartTime": null,
+  "ofcBookedAt": null,
+  "pending": false,
+  "completed": false,
+  "cached_booking": {
+    "city": "CHENNAI",
+    "date": "2027-01-27",
+    "phase1_token": "",
+    "primaryId": "f2832468-8f7a-f111-9b47-001dd8018918",
+    "appd": "058fe058-8d7a-f111-ab0f-001dd80ad0f9",
+    "isReschedule": null,
+    "candidates": [
+      {
+        "city": "CHENNAI",
+        "date": "2027-01-27"
+      }
+    ],
+    "captured_at": 1793167121.103828,
+    "source": "cross_account"
+  },
+  "trigger_key": "background|krishnakumar_kris|CHENNAI|2027-01-27|SNIPER",
+  "trigger_timestamp": 1793167121.1038146,
+  "last_booking_failure_reason": "SNIPER booking attempt failed",
+  "booking_runner_alive": true,
+  "booking_runner_heartbeat": 1793167397.3961225,
+  "booking_runner_pid": 29072,
+  "action_type": "SNIPER",
+  "primaryId": "f2832468-8f7a-f111-9b47-001dd8018918",
+  "appd": "058fe058-8d7a-f111-ab0f-001dd80ad0f9",
+  "isReschedule": null,
+  "ofcCities": [
+    "CHENNAI"
+  ],
+  "ofcPriorityCity": "CHENNAI",
+  "ofcStartDate": "2026-10-24",
+  "ofcEndDate": "2027-01-31",
+  "consularCities": [
+    "CHENNAI"
+  ],
+  "consularPriorityCity": "",
+  "consularStartDate": "2026-10-24",
+  "consularEndDate": "2027-01-31",
+  "prevent_immediate": false,
+  "multiPerson": false,
+  "remote_trigger_sent_at": 1793167121.1042194,
+  "remote_trigger_status": "broadcast_and_local_booking",
+  "rest_until": 1793162618.5955503,
+  "last_booking_failure_at": 1793162498.5955503,
+  "role": "RESERVED_BOOKING",
+  "priority": 1,
+  "source": "cross_account",
+  "is_scout_self_book": false,
+  "booking_attempts_count": 4,
+  "last_booking_attempt_ts": 1793167121.1038325
+}

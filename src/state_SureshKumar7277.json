@@ -1,0 +1,17 @@
+{
+  "booking_running": false,
+  "customer_name": "SureshKumar7277",
+  "waitingForConsular": false,
+  "bookedOfcDate": null,
+  "waitStartTime": null,
+  "ofcBookedAt": null,
+  "pending": false,
+  "completed": false,
+  "cached_booking": null,
+  "trigger_key": null,
+  "trigger_timestamp": null,
+  "last_booking_failure_reason": null,
+  "booking_runner_alive": true,
+  "booking_runner_heartbeat": 1792567635.3905113,
+  "booking_runner_pid": 10100
+}

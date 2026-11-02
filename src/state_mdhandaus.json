@@ -1,0 +1,35 @@
+{
+  "booking_running": false,
+  "pending": false,
+  "trigger_timestamp": null,
+  "trigger_key": null,
+  "action_type": "SNIPER",
+  "ofcCities": [
+    "NEW DELHI"
+  ],
+  "ofcPriorityCity": "NEW DELHI",
+  "ofcStartDate": "2026-10-17",
+  "ofcEndDate": "2026-11-30",
+  "consularCities": [
+    "CHENNAI",
+    "MUMBAI",
+    "HYDERABAD",
+    "DELHI",
+    "KOLKATA"
+  ],
+  "consularPriorityCity": "",
+  "consularStartDate": "2026-10-17",
+  "consularEndDate": "2026-11-30",
+  "customer_name": "mdhandaus",
+  "prevent_immediate": false,
+  "multiPerson": false,
+  "cached_booking": null,
+  "remote_trigger_sent_at": 1792318315.2425554,
+  "remote_trigger_status": "sent_to_booking_pc",
+  "completed": false,
+  "last_booking_failure_reason": null,
+  "waitingForConsular": false,
+  "bookedOfcDate": null,
+  "waitStartTime": null,
+  "ofcBookedAt": null
+}

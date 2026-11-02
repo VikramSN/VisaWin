@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}VisaWin{% endblock %} - You dream. We monitor. You move.</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/bot_logo.png') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    <div class="app-layout">
+        {% if session.get('admin_logged_in') %}
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="brand">
+                <img src="{{ url_for('static', filename='images/bot_logo.png') }}" alt="VisaWin Logo" class="brand-logo-img" style="width: 44px; height: 44px; border-radius: 10px; object-fit: contain; background: transparent; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.06));">
+                <div class="brand-text">
+                    <h2 style="font-size: 20px; font-weight: 700; color: var(--text-primary); letter-spacing: -0.5px; margin: 0;">VisaWin</h2>
+                    <span style="font-size: 10px; font-weight: 600; color: var(--accent-gold); display: block; line-height: 1.3; margin-top: 2px;">You dream. We monitor. You move.</span>
+                </div>
+            </div>
+
+            <nav class="nav-links">
+                <a href="{{ url_for('dashboard') }}" class="nav-item {% if request.path == '/' %}active{% endif %}">
+                    <span class="icon">📊</span> Dashboard
+                </a>
+                <a href="{{ url_for('accounts_page') }}" class="nav-item {% if request.path == '/accounts' %}active{% endif %}">
+                    <span class="icon">👥</span> Accounts Manager
+                </a>
+                <a href="{{ url_for('queue_page') }}" class="nav-item {% if request.path == '/queue' %}active{% endif %}">
+                    <span class="icon">⚡</span> Booking Manager
+                </a>
+                <a href="{{ url_for('confirmations_page') }}" class="nav-item {% if request.path == '/confirmations' %}active{% endif %}">
+                    <span class="icon">✨</span> It's Done
+                </a>
+            </nav>
+
+
+
+            <div class="sidebar-footer">
+                <div class="server-status">
+                    <span class="status-indicator live"></span>
+                    <div class="status-info">
+                        <small>Server Status</small>
+                        <strong>Online & Ready</strong>
+                    </div>
+                </div>
+                <a href="{{ url_for('logout') }}" class="btn-logout" title="Logout">
+                    <span class="icon">🚪</span> Logout
+                </a>
+            </div>
+        </aside>
+        {% endif %}
+
+        <!-- Main Content Area -->
+        <main class="main-content {% if not session.get('admin_logged_in') %}full-width{% endif %}">
+            {% if session.get('admin_logged_in') %}
+            <header class="topbar">
+                <div class="page-title">
+                    <h1>{% block page_title %}Dashboard{% endblock %}</h1>
+                </div>
+                <div class="topbar-actions">
+                    <span class="api-tag" title="API Key Configured">
+                        🔑 API Key: <code>{{ api_key[:8] if api_key else 'Active' }}••••</code>
+                    </span>
+                    <a href="{{ url_for('accounts_page') }}" class="btn btn-primary btn-sm">
+                        + New Account
+                    </a>
+                </div>
+            </header>
+            {% endif %}
+
+            <!-- Flash Alerts -->
+            <div class="flash-messages">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <div class="alert alert-{{ category }}">
+                                <span>{{ message }}</span>
+                                <button type="button" class="close-alert" onclick="this.parentElement.remove();">&times;</button>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </div>
+
+            <div class="content-body">
+                {% block content %}{% endblock %}
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

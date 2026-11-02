@@ -1,0 +1,27 @@
+2026/10/28-21:26:28.553 5714 Reusing MANIFEST D:\Projects\US_VISA\Us_Visa_Bot_without API\si_visa_wo_api\chrome_profile_gurdeepkaur194625\Default\Session Storage/MANIFEST-000001
+2026/10/28-21:26:28.554 5714 Recovering log #80
+2026/10/28-21:26:28.556 5714 Reusing old log D:\Projects\US_VISA\Us_Visa_Bot_without API\si_visa_wo_api\chrome_profile_gurdeepkaur194625\Default\Session Storage/000080.log 
+2026/10/28-21:28:32.475 3690 Level-0 table #85: started
+2026/10/28-21:28:32.488 3690 Level-0 table #85: 18109 bytes OK
+2026/10/28-21:28:32.489 3690 Delete type=0 #80
+2026/10/28-22:27:39.674 3690 Level-0 table #87: started
+2026/10/28-22:27:39.689 3690 Level-0 table #87: 16532 bytes OK
+2026/10/28-22:27:39.690 3690 Delete type=0 #84
+2026/10/29-01:38:38.070 3690 Level-0 table #89: started
+2026/10/29-01:38:38.074 3690 Level-0 table #89: 15690 bytes OK
+2026/10/29-01:38:38.075 3690 Delete type=0 #86
+2026/10/29-04:33:49.151 5714 Level-0 table #91: started
+2026/10/29-04:33:49.155 5714 Level-0 table #91: 15556 bytes OK
+2026/10/29-04:33:49.156 5714 Delete type=0 #88
+2026/10/29-04:33:49.156 5714 Compacting 4@0 + 1@1 files
+2026/10/29-04:33:49.160 5714 Generated table #92@0: 2024 keys, 26883 bytes
+2026/10/29-04:33:49.160 5714 Compacted 4@0 + 1@1 files => 26883 bytes
+2026/10/29-04:33:49.161 5714 compacted to: files[ 0 1 1 0 0 0 0 ]
+2026/10/29-04:33:49.161 5714 Delete type=2 #82
+2026/10/29-04:33:49.161 5714 Delete type=2 #85
+2026/10/29-04:33:49.161 5714 Delete type=2 #87
+2026/10/29-04:33:49.161 5714 Delete type=2 #89
+2026/10/29-04:33:49.161 5714 Delete type=2 #91
+2026/10/29-07:44:22.374 3690 Level-0 table #94: started
+2026/10/29-07:44:22.382 3690 Level-0 table #94: 15467 bytes OK
+2026/10/29-07:44:22.383 3690 Delete type=0 #90

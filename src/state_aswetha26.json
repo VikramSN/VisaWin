@@ -1,0 +1,33 @@
+{
+  "booking_running": false,
+  "customer_name": "Aswetha",
+  "waitingForConsular": false,
+  "bookedOfcDate": null,
+  "waitStartTime": null,
+  "ofcBookedAt": null,
+  "pending": false,
+  "completed": false,
+  "cached_booking": null,
+  "trigger_key": null,
+  "trigger_timestamp": null,
+  "last_booking_failure_reason": null,
+  "action_type": "SNIPER",
+  "ofcCities": [
+    "MUMBAI"
+  ],
+  "ofcPriorityCity": "MUMBAI",
+  "ofcStartDate": "2026-10-25",
+  "ofcEndDate": "2026-12-31",
+  "consularCities": [
+    "CHENNAI",
+    "MUMBAI",
+    "HYDERABAD",
+    "DELHI",
+    "KOLKATA"
+  ],
+  "consularPriorityCity": "",
+  "consularStartDate": "2026-10-18",
+  "consularEndDate": "2026-12-31",
+  "prevent_immediate": false,
+  "multiPerson": false
+}

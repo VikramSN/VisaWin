@@ -1,0 +1,9 @@
+{
+  "server_url": "http://localhost:5000",
+  "api_key": "visabot-secure-api-key-2026",
+  "poll_interval_min": 75,
+  "poll_interval_max": 95,
+  "laptop_role": "ALL_IN_ONE",
+  "auto_sync_on_start": true,
+  "fleet_gap": 40
+}

@@ -1,0 +1,65 @@
+{
+  "booking_running": false,
+  "customer_name": "Manish",
+  "waitingForConsular": false,
+  "bookedOfcDate": null,
+  "waitStartTime": null,
+  "ofcBookedAt": null,
+  "pending": false,
+  "completed": false,
+  "cached_booking": {
+    "city": "NEW DELHI",
+    "date": "2026-11-18",
+    "phase1_token": "",
+    "primaryId": "023873f5-9da7-f111-a3d0-001dd811f380",
+    "appd": "e4abe07c-b146-f111-bec6-001dd80db40a",
+    "isReschedule": null,
+    "candidates": [
+      {
+        "city": "NEW DELHI",
+        "date": "2026-11-18"
+      }
+    ],
+    "captured_at": 1793246243.1942077,
+    "source": "cross_account"
+  },
+  "trigger_key": "background|manishongc|NEW DELHI|2026-11-18|SNIPER",
+  "trigger_timestamp": 1793246243.1942012,
+  "last_booking_failure_reason": "SNIPER booking attempt failed",
+  "booking_runner_alive": true,
+  "booking_runner_heartbeat": 1793246976.5486016,
+  "booking_runner_pid": 15220,
+  "action_type": "SNIPER",
+  "ofcCities": [
+    "NEW DELHI"
+  ],
+  "ofcPriorityCity": "NEW DELHI",
+  "ofcStartDate": "2026-10-21",
+  "ofcEndDate": "2026-12-31",
+  "consularCities": [
+    "CHENNAI",
+    "MUMBAI",
+    "HYDERABAD",
+    "DELHI",
+    "KOLKATA"
+  ],
+  "consularPriorityCity": "",
+  "consularStartDate": "2026-10-21",
+  "consularEndDate": "2026-12-31",
+  "prevent_immediate": false,
+  "multiPerson": false,
+  "rest_until": 1793246404.1941545,
+  "last_healed_at": 1792851227.2000604,
+  "primaryId": "023873f5-9da7-f111-a3d0-001dd811f380",
+  "appd": "e4abe07c-b146-f111-bec6-001dd80db40a",
+  "isReschedule": null,
+  "remote_trigger_sent_at": 1793246243.1944275,
+  "remote_trigger_status": "broadcast_and_local_booking",
+  "last_booking_failure_at": 1793246284.1941545,
+  "role": "RESERVED_BOOKING",
+  "priority": 3,
+  "source": "cross_account",
+  "is_scout_self_book": false,
+  "booking_attempts_count": 14,
+  "last_booking_attempt_ts": 1793246243.1942108
+}

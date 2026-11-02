@@ -1,0 +1,63 @@
+{
+  "booking_running": false,
+  "customer_name": "dineshkumar.usa",
+  "waitingForConsular": false,
+  "bookedOfcDate": null,
+  "waitStartTime": null,
+  "ofcBookedAt": null,
+  "pending": false,
+  "completed": false,
+  "cached_booking": {
+    "city": "NEW DELHI",
+    "date": "2026-12-30",
+    "phase1_token": "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",
+    "candidates": [
+      {
+        "city": "NEW DELHI",
+        "date": "2026-12-30"
+      }
+    ],
+    "captured_at": 1793231776.7462225,
+    "source": "monitor"
+  },
+  "trigger_key": "background|dineshkumar_usa|NEW DELHI|2026-12-30|SNIPER",
+  "trigger_timestamp": 1793231776.7462142,
+  "last_booking_failure_reason": "SNIPER booking attempt failed",
+  "booking_runner_alive": true,
+  "booking_runner_heartbeat": 1793246976.3785143,
+  "booking_runner_pid": 28784,
+  "action_type": "SNIPER",
+  "primaryId": "82ae3d4a-44ac-f111-a3d0-001dd81190ea",
+  "appd": "80fcba11-cf7a-f111-ab0f-001dd80c4770",
+  "isReschedule": null,
+  "ofcCities": [
+    "NEW DELHI"
+  ],
+  "ofcPriorityCity": "NEW DELHI",
+  "ofcStartDate": "2026-12-30",
+  "ofcEndDate": "2026-12-31",
+  "consularCities": [
+    "CHENNAI",
+    "MUMBAI",
+    "HYDERABAD",
+    "DELHI",
+    "KOLKATA"
+  ],
+  "consularPriorityCity": "",
+  "consularStartDate": "2026-10-24",
+  "consularEndDate": "2026-12-31",
+  "prevent_immediate": false,
+  "multiPerson": false,
+  "remote_trigger_sent_at": 1793206441.787531,
+  "remote_trigger_status": "broadcast_and_local_booking",
+  "rest_until": 1793231914.3048656,
+  "last_healed_at": 1792851319.7358024,
+  "last_booking_failure_at": 1793231794.3048656,
+  "role": "POLLING_ONLY",
+  "priority": 0,
+  "source": "scout_fast_pass",
+  "is_scout_self_book": true,
+  "booking_status": "IDLE",
+  "booking_attempts_count": 10,
+  "last_booking_attempt_ts": 1793206441.7870853
+}

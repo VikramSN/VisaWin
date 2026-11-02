@@ -1,0 +1,60 @@
+{
+  "booking_running": false,
+  "customer_name": "Sarthak3",
+  "waitingForConsular": false,
+  "bookedOfcDate": null,
+  "waitStartTime": null,
+  "ofcBookedAt": null,
+  "pending": false,
+  "completed": false,
+  "cached_booking": {
+    "city": "NEW DELHI",
+    "date": "2026-11-18",
+    "phase1_token": "",
+    "primaryId": "d7e7ca84-313d-f111-88b3-001dd80f953a",
+    "appd": "d7e7ca84-313d-f111-88b3-001dd80f953a",
+    "isReschedule": null,
+    "candidates": [
+      {
+        "city": "NEW DELHI",
+        "date": "2026-11-18"
+      }
+    ],
+    "captured_at": 1793246243.1753325,
+    "source": "cross_account"
+  },
+  "trigger_key": "background|Sarthak3|NEW DELHI|2026-11-18|SNIPER",
+  "trigger_timestamp": 1793246243.175322,
+  "last_booking_failure_reason": "SNIPER booking attempt failed",
+  "booking_runner_alive": true,
+  "booking_runner_heartbeat": 1793246978.91928,
+  "booking_runner_pid": 12240,
+  "role": "POLLING_ONLY",
+  "priority": 1,
+  "source": "cross_account",
+  "is_scout_self_book": false,
+  "action_type": "SNIPER",
+  "primaryId": "d7e7ca84-313d-f111-88b3-001dd80f953a",
+  "appd": "d7e7ca84-313d-f111-88b3-001dd80f953a",
+  "isReschedule": null,
+  "ofcCities": [
+    "NEW DELHI"
+  ],
+  "ofcPriorityCity": "NEW DELHI",
+  "ofcStartDate": "2026-10-24",
+  "ofcEndDate": "2026-12-31",
+  "consularCities": [
+    "DELHI"
+  ],
+  "consularPriorityCity": "",
+  "consularStartDate": "2026-10-24",
+  "consularEndDate": "2026-12-31",
+  "prevent_immediate": false,
+  "multiPerson": false,
+  "remote_trigger_sent_at": 1793246243.175706,
+  "remote_trigger_status": "broadcast_and_local_booking",
+  "rest_until": 1793246390.539049,
+  "last_booking_failure_at": 1793246270.539049,
+  "booking_attempts_count": 9,
+  "last_booking_attempt_ts": 1793246243.175337
+}

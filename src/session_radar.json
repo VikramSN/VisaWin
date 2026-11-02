@@ -1,0 +1,108 @@
+{
+  "last_global_action_at": 1793207157.340581,
+  "active_account": null,
+  "active_action_started_at": 0.0,
+  "accounts": {
+    "gurdeepkaur194625": {
+      "customer": "gurdeepkaur194625",
+      "role": "RESERVED_BOOKING",
+      "status": "LIVE",
+      "last_verified_at": 1793167180.290491,
+      "method": "PAGE RELOAD",
+      "registered_at": 1793066467.533311,
+      "error": null,
+      "updated_at": 1793167180.290491
+    },
+    "Sarthak3": {
+      "customer": "Sarthak3",
+      "role": "POLLING_ONLY",
+      "status": "LIVE",
+      "last_verified_at": 1793167027.535363,
+      "method": "PAGE RELOAD",
+      "registered_at": 1793066473.1595213,
+      "error": null,
+      "updated_at": 1793167027.535363
+    },
+    "Vardaanjoshi09": {
+      "customer": "Vardaanjoshi09",
+      "role": "POLLING_ONLY",
+      "status": "LIVE",
+      "last_verified_at": 1793098589.4206991,
+      "method": "PAGE RELOAD",
+      "registered_at": 1793066474.9974408,
+      "error": null,
+      "updated_at": 1793098589.4206991
+    },
+    "manishongc": {
+      "customer": "Manish",
+      "role": "RESERVED_BOOKING",
+      "status": "LIVE",
+      "last_verified_at": 1793167334.1089182,
+      "method": "PAGE RELOAD",
+      "registered_at": 1793066491.6423378,
+      "error": null,
+      "updated_at": 1793167334.1089182
+    },
+    "Bhavishya001": {
+      "customer": "Bhavishya",
+      "role": "RESERVED_BOOKING",
+      "status": "LIVE",
+      "last_verified_at": 1793183753.2022846,
+      "method": "LIGHTWEIGHT TOUCH",
+      "registered_at": 1793066497.3602269,
+      "error": null,
+      "updated_at": 1793183753.2022846
+    },
+    "cherkala00000_usa": {
+      "customer": "Cherkala",
+      "role": "POLLING_ONLY",
+      "status": "LIVE",
+      "last_verified_at": 1793176959.353311,
+      "method": "PAGE RELOAD",
+      "registered_at": 1793066504.6141446,
+      "error": null,
+      "updated_at": 1793176959.353311
+    },
+    "dineshkumar_usa": {
+      "customer": "dineshkumar.usa",
+      "role": "POLLING_ONLY",
+      "status": "LIVE",
+      "last_verified_at": 1793176801.4516168,
+      "method": "LIGHTWEIGHT TOUCH",
+      "registered_at": 1793066510.9282534,
+      "error": null,
+      "updated_at": 1793176801.4516168
+    },
+    "agarw245": {
+      "customer": "Agarwal",
+      "role": "RESERVED_BOOKING",
+      "status": "LIVE",
+      "last_verified_at": 1793207000.1331263,
+      "method": "AUTO RE-LOGIN",
+      "registered_at": 1793066524.6447136,
+      "error": null,
+      "updated_at": 1793207000.1331263
+    },
+    "RAHULBHARDWAJ_USA": {
+      "customer": "RAHULBHARDWAJ.USA",
+      "role": "POLLING_ONLY",
+      "status": "LIVE",
+      "last_verified_at": 1793207157.340581,
+      "method": "PAGE RELOAD",
+      "registered_at": 1793066531.7245471,
+      "error": null,
+      "updated_at": 1793207157.340581
+    },
+    "krishnakumar_kris": {
+      "customer": "krishnakumar_kris",
+      "role": "RESERVED_BOOKING",
+      "status": "LIVE",
+      "last_verified_at": 1793166868.6872122,
+      "method": "PAGE RELOAD",
+      "registered_at": 1793066563.0793266,
+      "error": null,
+      "updated_at": 1793166868.6872122
+    }
+  },
+  "updated_at": 1793246980.5384526
+}

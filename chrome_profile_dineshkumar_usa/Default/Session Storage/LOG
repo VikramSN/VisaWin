@@ -1,0 +1,42 @@
+2026/10/28-21:22:26.995 3cc4 Reusing MANIFEST D:\Projects\US_VISA\Us_Visa_Bot_without API\si_visa_wo_api\chrome_profile_dineshkumar_usa\Default\Session Storage/MANIFEST-000001
+2026/10/28-21:22:26.996 3cc4 Recovering log #90
+2026/10/28-21:22:26.997 3cc4 Reusing old log D:\Projects\US_VISA\Us_Visa_Bot_without API\si_visa_wo_api\chrome_profile_dineshkumar_usa\Default\Session Storage/000090.log 
+2026/10/28-22:05:39.425 5d30 Level-0 table #94: started
+2026/10/28-22:05:39.431 5d30 Level-0 table #94: 13957 bytes OK
+2026/10/28-22:05:39.432 5d30 Delete type=0 #90
+2026/10/28-23:27:37.560 5d30 Level-0 table #96: started
+2026/10/28-23:27:37.565 5d30 Level-0 table #96: 17512 bytes OK
+2026/10/28-23:27:37.566 5d30 Delete type=0 #93
+2026/10/29-00:40:19.659 5d30 Level-0 table #98: started
+2026/10/29-00:40:19.664 5d30 Level-0 table #98: 16360 bytes OK
+2026/10/29-00:40:19.666 5d30 Delete type=0 #95
+2026/10/29-00:40:19.667 3cc4 Compacting 4@0 + 1@1 files
+2026/10/29-00:40:19.676 3cc4 Generated table #99@0: 2267 keys, 30982 bytes
+2026/10/29-00:40:19.676 3cc4 Compacted 4@0 + 1@1 files => 30982 bytes
+2026/10/29-00:40:19.677 3cc4 compacted to: files[ 0 1 1 0 0 0 0 ]
+2026/10/29-00:40:19.678 3cc4 Delete type=2 #88
+2026/10/29-00:40:19.678 3cc4 Delete type=2 #91
+2026/10/29-00:40:19.678 3cc4 Delete type=2 #94
+2026/10/29-00:40:19.678 3cc4 Delete type=2 #96
+2026/10/29-00:40:19.678 3cc4 Delete type=2 #98
+2026/10/29-01:39:07.122 3cc4 Level-0 table #101: started
+2026/10/29-01:39:07.125 3cc4 Level-0 table #101: 16606 bytes OK
+2026/10/29-01:39:07.126 3cc4 Delete type=0 #97
+2026/10/29-04:39:56.764 3cc4 Level-0 table #103: started
+2026/10/29-04:39:56.768 3cc4 Level-0 table #103: 17203 bytes OK
+2026/10/29-04:39:56.769 3cc4 Delete type=0 #100
+2026/10/29-06:15:40.739 5d30 Level-0 table #105: started
+2026/10/29-06:15:40.745 5d30 Level-0 table #105: 16381 bytes OK
+2026/10/29-06:15:40.747 5d30 Delete type=0 #102
+2026/10/29-07:53:50.005 3cc4 Level-0 table #107: started
+2026/10/29-07:53:50.010 3cc4 Level-0 table #107: 16981 bytes OK
+2026/10/29-07:53:50.011 3cc4 Delete type=0 #104
+2026/10/29-07:53:50.011 3cc4 Compacting 4@0 + 1@1 files
+2026/10/29-07:53:50.016 3cc4 Generated table #108@0: 2454 keys, 32203 bytes
+2026/10/29-07:53:50.016 3cc4 Compacted 4@0 + 1@1 files => 32203 bytes
+2026/10/29-07:53:50.017 3cc4 compacted to: files[ 0 1 1 0 0 0 0 ]
+2026/10/29-07:53:50.017 3cc4 Delete type=2 #99
+2026/10/29-07:53:50.017 3cc4 Delete type=2 #101
+2026/10/29-07:53:50.017 3cc4 Delete type=2 #103
+2026/10/29-07:53:50.017 3cc4 Delete type=2 #105
+2026/10/29-07:53:50.017 3cc4 Delete type=2 #107

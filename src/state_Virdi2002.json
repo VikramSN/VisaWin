@@ -1,0 +1,47 @@
+{
+  "booking_running": false,
+  "pending": true,
+  "trigger_timestamp": 1792600060.7752292,
+  "trigger_key": "background|Virdi2002|NEW DELHI|2026-12-21|SNIPER",
+  "action_type": "SNIPER",
+  "ofcCities": [
+    "NEW DELHI"
+  ],
+  "ofcPriorityCity": "NEW DELHI",
+  "ofcStartDate": "2026-10-18",
+  "ofcEndDate": "2026-12-31",
+  "consularCities": [
+    "CHENNAI",
+    "MUMBAI",
+    "HYDERABAD",
+    "DELHI",
+    "KOLKATA"
+  ],
+  "consularPriorityCity": "",
+  "consularStartDate": "2026-10-18",
+  "consularEndDate": "2026-12-31",
+  "customer_name": "Virdi2002",
+  "prevent_immediate": false,
+  "multiPerson": false,
+  "cached_booking": {
+    "city": "NEW DELHI",
+    "date": "2026-12-21",
+    "phase1_token": "",
+    "candidates": [
+      {
+        "city": "NEW DELHI",
+        "date": "2026-12-21"
+      }
+    ],
+    "captured_at": 1792600060.7752357,
+    "source": "cross_account"
+  },
+  "remote_trigger_sent_at": 1792600060.7755575,
+  "remote_trigger_status": "broadcast_and_local_booking",
+  "completed": false,
+  "last_booking_failure_reason": null,
+  "waitingForConsular": false,
+  "bookedOfcDate": null,
+  "waitStartTime": null,
+  "ofcBookedAt": null
+}

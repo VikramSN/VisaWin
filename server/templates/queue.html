@@ -1,0 +1,326 @@
+{% extends "base.html" %}
+
+{% block title %}Booking Manager{% endblock %}
+{% block page_title %}Booking Manager & Execution Hub{% endblock %}
+
+
+{% block content %}
+<div class="tabs-header">
+    <button class="tab-btn active" onclick="switchQueueTab('tab-queue', this)">⚡ Booking Queue ({{ queue_items|length }})</button>
+    <button class="tab-btn" onclick="switchQueueTab('tab-slots-history', this)">🎯 Slot Monitoring History ({{ slot_history|length }})</button>
+    <button class="tab-btn" onclick="switchQueueTab('tab-ofc-bookings', this)">🏛️ OFC Bookings & Attempts ({{ ofc_bookings|length }})</button>
+    <button class="tab-btn" onclick="switchQueueTab('tab-consular-bookings', this)">🛂 Consular Bookings & Attempts ({{ consular_bookings|length }})</button>
+</div>
+
+<!-- Tab 1: Booking Queue -->
+<div id="tab-queue" class="tab-panel active">
+    <div class="card mt-3">
+        <div class="card-header">
+            <div class="card-title">
+                <h3>Live Booking Execution Queue</h3>
+                <p>Tasks assigned to accounts when matching slots are detected</p>
+            </div>
+            <div style="display: flex; gap: 8px;">
+                <button class="btn btn-secondary btn-sm" onclick="resetQueue()">🧹 Clean / Reset Queue</button>
+                <button class="btn btn-secondary btn-sm" onclick="location.reload()">🔄 Refresh</button>
+            </div>
+        </div>
+        <div style="background: var(--bg-surface); display: flex; align-items: center; gap: 10px; padding: 10px 18px; border-bottom: 1px solid var(--border-color);">
+            <span style="color: var(--text-muted); font-size: 14px;">🔍</span>
+            <input type="text" id="queueSearch" class="form-control form-control-sm"
+                placeholder="Search queue tasks by customer, username, city, date, status, notes..."
+                onkeyup="filterQueueTable('queue-table', this.value)"
+                style="max-width: 480px; background: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-primary); border-radius: 6px; padding: 6px 12px;">
+        </div>
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table" id="queue-table">
+                    <thead>
+                        <tr>
+                            <th>Task ID</th>
+                            <th>Customer / Username</th>
+                            <th>Target City</th>
+                            <th>Slot Date</th>
+                            <th>Status</th>
+                            <th>Notes</th>
+                            <th>Queued Time</th>
+                            <th class="text-right">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in queue_items %}
+                        <tr>
+                            <td><code>#{{ item.id }}</code></td>
+                            <td>
+                                <strong>{{ item.customer_name or item.username }}</strong>
+                                <br><small class="text-muted">{{ item.username }}</small>
+                            </td>
+                            <td><span class="badge badge-city">{{ item.city }}</span></td>
+                            <td><strong>{{ item.slot_date|dt_fmt(item.slot_time) }}</strong></td>
+                            <td>
+                                <span class="badge badge-{{ item.status.lower() }}">{{ item.status }}</span>
+                            </td>
+                            <td><small class="text-muted">{{ item.notes or '—' }}</small></td>
+                            <td><small>{{ item.created_at|dt_fmt }}</small></td>
+                            <td class="text-right">
+                                <div style="display: inline-flex; align-items: center; gap: 8px;">
+                                    <select class="form-control form-control-sm select-status" onchange="updateQueueStatus({{ item.id }}, this.value)" style="width: auto;">
+                                        <option value="" disabled selected>Status...</option>
+                                        <option value="PROCESSING">Processing</option>
+                                        <option value="BOOKED">Booked ✅</option>
+                                        <option value="FAILED">Failed ❌</option>
+                                        <option value="EXPIRED">Expired ⌛</option>
+                                    </select>
+                                    <button class="btn-action delete" onclick="deleteQueueItem({{ item.id }})" title="Delete Task">🗑️</button>
+                                </div>
+                            </td>
+                        </tr>
+                        {% else %}
+                        <tr>
+                            <td colspan="8" class="text-center py-5">
+                                <div class="empty-state">
+                                    <span class="empty-icon">⏳</span>
+                                    <p>No booking tasks currently queued.</p>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Tab 2: Slot Monitoring History -->
+<div id="tab-slots-history" class="tab-panel">
+    <div class="card mt-3">
+        <div class="card-header">
+            <div class="card-title">
+                <h3>🎯 Slot Monitoring History</h3>
+                <p>Live historical log of all available US Visa slots detected across cities</p>
+            </div>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                <button class="btn btn-download-report btn-sm" onclick="downloadSlotHistoryCSV()" title="Download Report" style="background: #FFFFFF !important; color: #2F2A24 !important; border: 1px solid var(--border-color); font-weight: 600; box-shadow: 0 1px 3px rgba(0,0,0,0.06);">📥 Download Report</button>
+                <button class="btn btn-secondary btn-sm" onclick="shareSlotHistory()" title="Copy formatted slot report to clipboard">📋 Share / Copy</button>
+                <button class="btn btn-secondary btn-sm" onclick="clearSlotHistory()" title="Clear slot history">🧹 Clear History</button>
+                <button class="btn btn-secondary btn-sm" onclick="location.reload()">🔄 Refresh</button>
+            </div>
+        </div>
+        <div style="background: var(--bg-surface); display: flex; align-items: center; gap: 10px; padding: 10px 18px; border-bottom: 1px solid var(--border-color);">
+            <span style="color: var(--text-muted); font-size: 14px;">🔍</span>
+            <input type="text" id="slotHistorySearch" class="form-control form-control-sm"
+                placeholder="Search slot history by city, date, type, poller, status..."
+                onkeyup="filterQueueTable('slot-history-table', this.value)"
+                style="max-width: 480px; background: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-primary); border-radius: 6px; padding: 6px 12px;">
+        </div>
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table" id="slot-history-table">
+                    <thead>
+                        <tr>
+                            <th>#ID</th>
+                            <th>City</th>
+                            <th>Available Date</th>
+                            <th>Slot Quantity</th>
+                            <th>Slot Type</th>
+                            <th>Discovered At (Date & Time)</th>
+                            <th>Polled By</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for s in slot_history %}
+                        <tr>
+                            <td><code>#{{ s.id }}</code></td>
+                            <td><span class="badge badge-city">{{ s.city }}</span></td>
+                            <td><strong style="color: #2E7D32;">{{ s.slot_date|dt_fmt(s.slot_time) }}</strong></td>
+                            <td><span class="badge badge-success">{{ s.quantity }} slot(s)</span></td>
+                            <td><span class="badge badge-info">{{ s.slot_type }}</span></td>
+                            <td><small class="text-muted">{{ s.created_at|dt_fmt }}</small></td>
+                            <td><small><strong>{{ s.discovered_by or 'MONITOR' }}</strong></small></td>
+                            <td><span class="badge badge-warning">{{ s.status }}</span></td>
+                        </tr>
+                        {% else %}
+                        <tr>
+                            <td colspan="8" class="text-center py-5">
+                                <div class="empty-state">
+                                    <span class="empty-icon">🎯</span>
+                                    <p>No slot detection history recorded yet.</p>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Tab 3: OFC Bookings & Attempts -->
+<div id="tab-ofc-bookings" class="tab-panel">
+    <div class="card mt-3">
+        <div class="card-header">
+            <div class="card-title">
+                <h3>🏛️ OFC Bookings & Attempts</h3>
+                <p>Complete historical log of OFC biometric appointments booked and attempts/failures</p>
+            </div>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                <button class="btn btn-download-report btn-sm" onclick="downloadBookingsCSV('OFC')" title="Download Report" style="background: #FFFFFF !important; color: #2F2A24 !important; border: 1px solid var(--border-color); font-weight: 600; box-shadow: 0 1px 3px rgba(0,0,0,0.06);">📥 Download Report</button>
+                <button class="btn btn-secondary btn-sm" onclick="shareBookings('OFC')" title="Copy OFC report to clipboard">📋 Share / Copy</button>
+                <button class="btn btn-secondary btn-sm" onclick="clearBookings('OFC')" title="Clear all OFC history">🧹 Clear History</button>
+                <button class="btn btn-secondary btn-sm" onclick="location.reload()">🔄 Refresh</button>
+            </div>
+        </div>
+        <div style="background: var(--bg-surface); display: flex; align-items: center; gap: 10px; padding: 10px 18px; border-bottom: 1px solid var(--border-color);">
+            <span style="color: var(--text-muted); font-size: 14px;">🔍</span>
+            <input type="text" id="ofcSearch" class="form-control form-control-sm"
+                placeholder="Search OFC records by customer, username, city, date, status, details..."
+                onkeyup="filterQueueTable('ofc-bookings-table', this.value)"
+                style="max-width: 480px; background: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-primary); border-radius: 6px; padding: 6px 12px;">
+        </div>
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table" id="ofc-bookings-table">
+                    <thead>
+                        <tr>
+                            <th>#ID</th>
+                            <th>Customer / Username</th>
+                            <th>Slot City</th>
+                            <th>Slot Date & Time</th>
+                            <th>Status</th>
+                            <th>Details / Notes</th>
+                            <th>Date & Time</th>
+                            <th class="text-right">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for b in ofc_bookings %}
+                        <tr>
+                            <td><code>#{{ b.id }}</code></td>
+                            <td>
+                                <strong>{{ b.customer_name or b.username }}</strong>
+                                <br><small class="text-muted">{{ b.username }}</small>
+                            </td>
+                            <td><span class="badge badge-city">{{ b.city }}</span></td>
+                            <td>
+                                <strong>{{ b.slot_date|dt_fmt(b.slot_time) }}</strong>
+                            </td>
+                            <td>
+                                {% if 'BOOKED' in b.status or 'CONFIRMED' in b.status %}
+                                <span class="badge badge-success">BOOKED ✅</span>
+                                {% elif 'FAIL' in b.status or 'ERROR' in b.status %}
+                                <span class="badge badge-danger">FAILED ❌</span>
+                                {% elif 'ATTEMPT' in b.status %}
+                                <span class="badge badge-warning">ATTEMPTED ⚡</span>
+                                {% else %}
+                                <span class="badge badge-info">{{ b.status }}</span>
+                                {% endif %}
+                            </td>
+                            <td><small class="text-muted">{{ b.notes or '—' }}</small></td>
+                            <td><small>{{ b.created_at|dt_fmt }}</small></td>
+                            <td class="text-right">
+                                <button class="btn-action delete" onclick="deleteBookingRecord({{ b.id }}, 'OFC')" title="Delete Record">🗑️</button>
+                            </td>
+                        </tr>
+                        {% else %}
+                        <tr>
+                            <td colspan="8" class="text-center py-5">
+                                <div class="empty-state">
+                                    <span class="empty-icon">🏛️</span>
+                                    <p>No OFC booking attempts or confirmed appointments recorded yet.</p>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Tab 4: Consular Bookings & Attempts -->
+<div id="tab-consular-bookings" class="tab-panel">
+    <div class="card mt-3">
+        <div class="card-header">
+            <div class="card-title">
+                <h3>🛂 Consular Bookings & Attempts</h3>
+                <p>Complete historical log of Consular interview appointments booked and attempts/failures</p>
+            </div>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                <button class="btn btn-download-report btn-sm" onclick="downloadBookingsCSV('CONSULAR')" title="Download Report" style="background: #FFFFFF !important; color: #2F2A24 !important; border: 1px solid var(--border-color); font-weight: 600; box-shadow: 0 1px 3px rgba(0,0,0,0.06);">📥 Download Report</button>
+                <button class="btn btn-secondary btn-sm" onclick="shareBookings('CONSULAR')" title="Copy Consular report to clipboard">📋 Share / Copy</button>
+                <button class="btn btn-secondary btn-sm" onclick="clearBookings('CONSULAR')" title="Clear all Consular history">🧹 Clear History</button>
+                <button class="btn btn-secondary btn-sm" onclick="location.reload()">🔄 Refresh</button>
+            </div>
+        </div>
+        <div style="background: var(--bg-surface); display: flex; align-items: center; gap: 10px; padding: 10px 18px; border-bottom: 1px solid var(--border-color);">
+            <span style="color: var(--text-muted); font-size: 14px;">🔍</span>
+            <input type="text" id="consularSearch" class="form-control form-control-sm"
+                placeholder="Search Consular records by customer, username, city, date, status, details..."
+                onkeyup="filterQueueTable('consular-bookings-table', this.value)"
+                style="max-width: 480px; background: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-primary); border-radius: 6px; padding: 6px 12px;">
+        </div>
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table" id="consular-bookings-table">
+                    <thead>
+                        <tr>
+                            <th>#ID</th>
+                            <th>Customer / Username</th>
+                            <th>Slot City</th>
+                            <th>Slot Date & Time</th>
+                            <th>Status</th>
+                            <th>Details / Notes</th>
+                            <th>Date & Time</th>
+                            <th class="text-right">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for b in consular_bookings %}
+                        <tr>
+                            <td><code>#{{ b.id }}</code></td>
+                            <td>
+                                <strong>{{ b.customer_name or b.username }}</strong>
+                                <br><small class="text-muted">{{ b.username }}</small>
+                            </td>
+                            <td><span class="badge badge-city">{{ b.city }}</span></td>
+                            <td>
+                                <strong>{{ b.slot_date|dt_fmt(b.slot_time) }}</strong>
+                            </td>
+                            <td>
+                                {% if 'BOOKED' in b.status or 'CONFIRMED' in b.status %}
+                                <span class="badge badge-success">BOOKED ✅</span>
+                                {% elif 'FAIL' in b.status or 'ERROR' in b.status %}
+                                <span class="badge badge-danger">FAILED ❌</span>
+                                {% elif 'ATTEMPT' in b.status %}
+                                <span class="badge badge-warning">ATTEMPTED ⚡</span>
+                                {% else %}
+                                <span class="badge badge-info">{{ b.status }}</span>
+                                {% endif %}
+                            </td>
+                            <td><small class="text-muted">{{ b.notes or '—' }}</small></td>
+                            <td><small>{{ b.created_at|dt_fmt }}</small></td>
+                            <td class="text-right">
+                                <button class="btn-action delete" onclick="deleteBookingRecord({{ b.id }}, 'CONSULAR')" title="Delete Record">🗑️</button>
+                            </td>
+                        </tr>
+                        {% else %}
+                        <tr>
+                            <td colspan="8" class="text-center py-5">
+                                <div class="empty-state">
+                                    <span class="empty-icon">🛂</span>
+                                    <p>No Consular booking attempts or confirmed appointments recorded yet.</p>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

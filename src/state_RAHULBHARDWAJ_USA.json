@@ -1,0 +1,68 @@
+{
+  "booking_running": false,
+  "customer_name": "RAHULBHARDWAJ.USA",
+  "waitingForConsular": false,
+  "bookedOfcDate": null,
+  "waitStartTime": null,
+  "ofcBookedAt": null,
+  "pending": false,
+  "completed": false,
+  "cached_booking": {
+    "city": "NEW DELHI",
+    "date": "2026-11-18",
+    "phase1_token": "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",
+    "candidates": [
+      {
+        "city": "NEW DELHI",
+        "date": "2026-11-18"
+      },
+      {
+        "city": "NEW DELHI",
+        "date": "2026-11-17"
+      }
+    ],
+    "captured_at": 1793246243.1475055,
+    "source": "monitor"
+  },
+  "trigger_key": "background|RAHULBHARDWAJ_USA|NEW DELHI|2026-11-18|SNIPER",
+  "trigger_timestamp": 1793246243.1474955,
+  "last_booking_failure_reason": "SNIPER booking attempt failed",
+  "booking_runner_alive": true,
+  "booking_runner_heartbeat": 1793246938.2922716,
+  "booking_runner_pid": 11288,
+  "action_type": "SNIPER",
+  "primaryId": "cd9c8d43-7fa7-f111-a3d0-001dd801c996",
+  "appd": "3ea5dfdf-ce7a-f111-ab0e-001dd80edd16",
+  "isReschedule": null,
+  "ofcCities": [
+    "NEW DELHI"
+  ],
+  "ofcPriorityCity": "NEW DELHI",
+  "ofcStartDate": "2026-11-17",
+  "ofcEndDate": "2026-12-31",
+  "consularCities": [
+    "CHENNAI",
+    "MUMBAI",
+    "HYDERABAD",
+    "DELHI",
+    "KOLKATA"
+  ],
+  "consularPriorityCity": "",
+  "consularStartDate": "2026-10-24",
+  "consularEndDate": "2026-12-31",
+  "prevent_immediate": false,
+  "multiPerson": false,
+  "remote_trigger_sent_at": 1793215569.2247527,
+  "remote_trigger_status": "broadcast_and_local_booking",
+  "rest_until": 1793246384.411858,
+  "last_healed_at": 1792851242.5851297,
+  "last_booking_failure_at": 1793246264.411858,
+  "role": "POLLING_ONLY",
+  "priority": 0,
+  "source": "scout_fast_pass",
+  "is_scout_self_book": true,
+  "booking_attempts_count": 6,
+  "last_booking_attempt_ts": 1793215569.2244442,
+  "booking_status": "IDLE",
+  "firstConsularPollDone": true
+}

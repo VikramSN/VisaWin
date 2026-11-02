@@ -1,0 +1,65 @@
+{
+  "booking_running": false,
+  "customer_name": "gurdeepkaur194625",
+  "waitingForConsular": false,
+  "bookedOfcDate": null,
+  "waitStartTime": null,
+  "ofcBookedAt": null,
+  "pending": false,
+  "completed": false,
+  "cached_booking": {
+    "city": "CHENNAI",
+    "date": "2026-12-21",
+    "phase1_token": "",
+    "primaryId": "16c897d7-f0a5-f111-a3d0-001dd802d5e4",
+    "appd": "6405e190-efa5-f111-b8de-001dd80845ec",
+    "isReschedule": null,
+    "candidates": [
+      {
+        "city": "CHENNAI",
+        "date": "2026-12-21"
+      }
+    ],
+    "captured_at": 1793240931.8136437,
+    "source": "cross_account"
+  },
+  "trigger_key": "background|gurdeepkaur194625|CHENNAI|2026-12-21|SNIPER",
+  "trigger_timestamp": 1793240931.813637,
+  "last_booking_failure_reason": "SNIPER booking attempt failed",
+  "booking_runner_alive": true,
+  "booking_runner_heartbeat": 1793246976.7695482,
+  "booking_runner_pid": 27120,
+  "action_type": "SNIPER",
+  "primaryId": "16c897d7-f0a5-f111-a3d0-001dd802d5e4",
+  "appd": "6405e190-efa5-f111-b8de-001dd80845ec",
+  "isReschedule": null,
+  "ofcCities": [
+    "CHENNAI"
+  ],
+  "ofcPriorityCity": "CHENNAI",
+  "ofcStartDate": "2026-10-24",
+  "ofcEndDate": "2026-12-31",
+  "consularCities": [
+    "CHENNAI",
+    "MUMBAI",
+    "HYDERABAD",
+    "DELHI",
+    "KOLKATA"
+  ],
+  "consularPriorityCity": "",
+  "consularStartDate": "2026-10-24",
+  "consularEndDate": "2026-12-31",
+  "prevent_immediate": false,
+  "multiPerson": false,
+  "remote_trigger_sent_at": 1793240931.8140132,
+  "remote_trigger_status": "broadcast_and_local_booking",
+  "rest_until": 1793241059.0386894,
+  "last_healed_at": 1792851211.5560043,
+  "last_booking_failure_at": 1793240939.0386894,
+  "role": "RESERVED_BOOKING",
+  "priority": 2,
+  "source": "cross_account",
+  "is_scout_self_book": false,
+  "booking_attempts_count": 12,
+  "last_booking_attempt_ts": 1793240931.8136466
+}

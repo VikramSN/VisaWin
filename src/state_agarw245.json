@@ -1,0 +1,65 @@
+{
+  "booking_running": false,
+  "pending": false,
+  "completed": false,
+  "cached_booking": {
+    "city": "NEW DELHI",
+    "date": "2026-11-18",
+    "phase1_token": "",
+    "primaryId": "0454833c-9da7-f111-a3d0-001dd811f380",
+    "appd": "bb9f999b-49c6-f011-bbd3-001dd80ff094",
+    "isReschedule": null,
+    "candidates": [
+      {
+        "city": "NEW DELHI",
+        "date": "2026-11-18"
+      }
+    ],
+    "captured_at": 1793246243.1849117,
+    "source": "cross_account"
+  },
+  "trigger_key": "background|agarw245|NEW DELHI|2026-11-18|SNIPER",
+  "trigger_timestamp": 1793246243.1849053,
+  "last_booking_failure_reason": "SNIPER booking attempt failed",
+  "customer_name": "Agarwal",
+  "waitingForConsular": false,
+  "bookedOfcDate": null,
+  "waitStartTime": null,
+  "ofcBookedAt": null,
+  "booking_runner_alive": true,
+  "booking_runner_heartbeat": 1793246977.041656,
+  "booking_runner_pid": 1844,
+  "action_type": "SNIPER",
+  "ofcCities": [
+    "NEW DELHI"
+  ],
+  "ofcPriorityCity": "NEW DELHI",
+  "ofcStartDate": "2026-10-21",
+  "ofcEndDate": "2026-12-31",
+  "consularCities": [
+    "CHENNAI",
+    "MUMBAI",
+    "HYDERABAD",
+    "DELHI",
+    "KOLKATA"
+  ],
+  "consularPriorityCity": "",
+  "consularStartDate": "2026-10-21",
+  "consularEndDate": "2026-12-31",
+  "prevent_immediate": false,
+  "multiPerson": false,
+  "rest_until": 1793246397.3043478,
+  "last_healed_at": 1792851335.4727197,
+  "primaryId": "0454833c-9da7-f111-a3d0-001dd811f380",
+  "appd": "bb9f999b-49c6-f011-bbd3-001dd80ff094",
+  "isReschedule": null,
+  "remote_trigger_sent_at": 1793246243.185265,
+  "remote_trigger_status": "broadcast_and_local_booking",
+  "last_booking_failure_at": 1793246277.3043478,
+  "role": "RESERVED_BOOKING",
+  "priority": 2,
+  "source": "cross_account",
+  "is_scout_self_book": false,
+  "booking_attempts_count": 9,
+  "last_booking_attempt_ts": 1793246243.184914
+}

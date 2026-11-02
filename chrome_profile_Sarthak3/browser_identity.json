@@ -1,0 +1,22 @@
+{
+  "cohort": "HIGH",
+  "chrome_version": "130.0.6723.117",
+  "major": "130",
+  "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.6723.117 Safari/537.36",
+  "platform": "Windows",
+  "platform_version": "10.0.0",
+  "brands": [
+    {
+      "brand": "Chromium",
+      "version": "130"
+    },
+    {
+      "brand": "Not?A_Brand",
+      "version": "99"
+    },
+    {
+      "brand": "Google Chrome",
+      "version": "130"
+    }
+  ]
+}

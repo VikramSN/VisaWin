@@ -1,0 +1,25 @@
+{
+  "queue": [],
+  "running": null,
+  "leases": {},
+  "idempotency_cache": {
+    "RAHULBHARDWAJ_USA:721d1668-944f-4820-9175-a324afe9e201": {
+      "status": "completed",
+      "recorded_at": 1793246264.3954432
+    },
+    "Sarthak3:821fe7fb-de79-4da8-978a-32db7b167bff": {
+      "status": "completed",
+      "recorded_at": 1793246270.5144534
+    },
+    "agarw245:d1cff0c6-9302-42e0-9004-87535167971d": {
+      "status": "completed",
+      "recorded_at": 1793246277.280126
+    },
+    "manishongc:49dc81af-b5c7-4603-8011-d240c691d53d": {
+      "status": "completed",
+      "recorded_at": 1793246282.4960785
+    }
+  },
+  "updated_at": 1793246282.4960845,
+  "total_queued": 0
+}

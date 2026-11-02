@@ -1,0 +1,180 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard Overview{% endblock %}
+{% block page_title %}Server Dashboard{% endblock %}
+
+{% block content %}
+<div class="dashboard-grid">
+    <!-- Stat Cards -->
+    <div class="stat-card">
+        <div class="stat-icon bg-gold-glow">👥</div>
+        <div class="stat-details">
+            <span class="stat-label">Total Accounts</span>
+            <h3 class="stat-value">{{ stats.total_accounts }}</h3>
+            <span class="stat-sub">{{ stats.active_accounts }} Active & Monitoring</span>
+        </div>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-icon bg-green-glow">🎯</div>
+        <div class="stat-details">
+            <span class="stat-label">Active Snipers</span>
+            <h3 class="stat-value">{{ stats.active_accounts }}</h3>
+            <span class="stat-sub">Ready for Instant Booking</span>
+        </div>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-icon bg-blue-glow">⚡</div>
+        <div class="stat-details">
+            <span class="stat-label">Triggers Received</span>
+            <h3 class="stat-value">{{ stats.total_triggers }}</h3>
+            <span class="stat-sub">From Desktop Monitor</span>
+        </div>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-icon bg-amber-glow">⏳</div>
+        <div class="stat-details">
+            <span class="stat-label">Pending Queue</span>
+            <h3 class="stat-value">{{ stats.pending_queue }}</h3>
+            <span class="stat-sub">Awaiting Booking Execution</span>
+        </div>
+    </div>
+</div>
+
+<!-- Fleet Radar & Auto Hot-Swap Architecture Banner -->
+<div class="card mt-4" style="background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(59, 130, 246, 0.08) 100%); border-left: 4px solid var(--accent-gold);">
+    <div class="card-body" style="padding: 14px 20px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+            <div>
+                <strong style="color: var(--accent-gold); font-size: 14px;">📡 Fleet Radar Mode: Active</strong>
+                <span style="color: var(--text-muted); font-size: 13px; margin-left: 8px;">Poller accounts continuously monitor all 5 OFC cities (Chennai, Mumbai, Hyderabad, Delhi, Kolkata) for the entire fleet.</span>
+            </div>
+            <div>
+                <span class="badge badge-radar">🔄 Auto Hot-Swap Engine Armed (Zero-Restart)</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Integration Information Card -->
+<div class="card mt-4">
+    <div class="card-header">
+        <div class="card-title">
+            <h3>🔗 Desktop Monitor Integration</h3>
+            <p>Connect your Desktop Slot Monitor to this server using these credentials</p>
+        </div>
+        <button class="btn btn-secondary btn-sm" onclick="copyApiSnippet()">📋 Copy Config</button>
+    </div>
+    <div class="card-body">
+        <div class="integration-boxes">
+            <div class="info-box">
+                <span class="info-label">Server Webhook URL:</span>
+                <code id="serverUrl" class="copyable">{{ request.url_root }}api/trigger</code>
+            </div>
+            <div class="info-box">
+                <span class="info-label">Sync Targets URL:</span>
+                <code class="copyable">{{ request.url_root }}api/targets</code>
+            </div>
+            <div class="info-box">
+                <span class="info-label">Server API Key:</span>
+                <code id="apiKeyVal" class="copyable">{{ api_key }}</code>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Two-Column Section: Recent Triggers & Recent Queue -->
+<div class="grid-2-col mt-4">
+    <!-- Recent Triggers -->
+    <div class="card">
+        <div class="card-header">
+            <div class="card-title">
+                <h3>🚨 Recent Slot Triggers</h3>
+                <p>Latest alerts detected by Desktop Monitor</p>
+            </div>
+            <a href="{{ url_for('queue_page') }}" class="btn-link">View All ➔</a>
+        </div>
+        <div class="card-body p-0">
+            {% if recent_triggers %}
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>City</th>
+                            <th>Slot Date</th>
+                            <th>Matched</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for t in recent_triggers %}
+                        <tr>
+                            <td><span class="badge badge-city">{{ t.city }}</span></td>
+                            <td><strong>{{ t.slot_date|dt_fmt(t.slot_time) }}</strong></td>
+                            <td><span class="badge badge-success">{{ t.matched_count }} account(s)</span></td>
+                            <td><small class="text-muted">{{ t.created_at|dt_fmt }}</small></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+            <div class="empty-state">
+                <span class="empty-icon">📡</span>
+                <p>No slot triggers recorded yet. Start Desktop Monitor to detect slots.</p>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Recent Booking Queue -->
+    <div class="card">
+        <div class="card-header">
+            <div class="card-title">
+                <h3>📋 Recent Booking Tasks</h3>
+                <p>Accounts queued for automated booking</p>
+            </div>
+            <a href="{{ url_for('queue_page') }}" class="btn-link">View All ➔</a>
+        </div>
+        <div class="card-body p-0">
+            {% if recent_queue %}
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Customer</th>
+                            <th>City & Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for q in recent_queue %}
+                        <tr>
+                            <td>
+                                <strong>{{ q.customer_name or q.username }}</strong>
+                                <br><small class="text-muted">{{ q.username }}</small>
+                            </td>
+                            <td>
+                                <span>{{ q.city }}</span>
+                                <br><small>{{ q.slot_date|dt_fmt(q.slot_time) }}</small>
+                            </td>
+                            <td>
+                                <span class="badge badge-{{ q.status.lower() }}">{{ q.status }}</span>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+            <div class="empty-state">
+                <span class="empty-icon">⏳</span>
+                <p>Booking queue is currently empty.</p>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

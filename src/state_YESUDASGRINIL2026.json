@@ -1,0 +1,40 @@
+{
+  "booking_running": false,
+  "customer_name": "YESUDASGRINIL2026",
+  "waitingForConsular": false,
+  "bookedOfcDate": null,
+  "waitStartTime": null,
+  "ofcBookedAt": null,
+  "pending": false,
+  "completed": false,
+  "cached_booking": null,
+  "trigger_key": null,
+  "trigger_timestamp": null,
+  "last_booking_failure_reason": null,
+  "action_type": "SNIPER",
+  "ofcCities": [
+    "MUMBAI"
+  ],
+  "ofcPriorityCity": "MUMBAI",
+  "ofcStartDate": "2026-10-17",
+  "ofcEndDate": "2026-11-30",
+  "consularCities": [
+    "CHENNAI",
+    "MUMBAI",
+    "HYDERABAD",
+    "DELHI",
+    "KOLKATA"
+  ],
+  "consularPriorityCity": "",
+  "consularStartDate": "2026-10-17",
+  "consularEndDate": "2026-11-30",
+  "prevent_immediate": false,
+  "multiPerson": false,
+  "rest_until": 1792318801.5112572,
+  "last_booking_failure_at": 1792318681.5112572,
+  "remote_trigger_sent_at": 1792563073.6339023,
+  "remote_trigger_status": "broadcast_and_local_booking",
+  "booking_runner_alive": true,
+  "booking_runner_heartbeat": 1792567636.4248397,
+  "booking_runner_pid": 19496
+}

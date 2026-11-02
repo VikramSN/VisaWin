@@ -1,0 +1,45 @@
+2026/10/28-21:22:43.633 234 Reusing MANIFEST D:\Projects\US_VISA\Us_Visa_Bot_without API\si_visa_wo_api\chrome_profile_cherkala00000_usa\Default\Session Storage/MANIFEST-000001
+2026/10/28-21:22:43.634 234 Recovering log #104
+2026/10/28-21:22:43.636 234 Reusing old log D:\Projects\US_VISA\Us_Visa_Bot_without API\si_visa_wo_api\chrome_profile_cherkala00000_usa\Default\Session Storage/000104.log 
+2026/10/28-22:07:51.206 234 Level-0 table #109: started
+2026/10/28-22:07:51.213 234 Level-0 table #109: 14523 bytes OK
+2026/10/28-22:07:51.215 234 Delete type=0 #104
+2026/10/29-01:07:01.165 3380 Level-0 table #111: started
+2026/10/29-01:07:01.179 3380 Level-0 table #111: 17657 bytes OK
+2026/10/29-01:07:01.180 3380 Delete type=0 #108
+2026/10/29-01:48:26.535 3380 Level-0 table #113: started
+2026/10/29-01:48:26.551 3380 Level-0 table #113: 18238 bytes OK
+2026/10/29-01:48:26.552 3380 Delete type=0 #110
+2026/10/29-02:32:05.428 234 Level-0 table #115: started
+2026/10/29-02:32:05.431 234 Level-0 table #115: 16429 bytes OK
+2026/10/29-02:32:05.432 234 Delete type=0 #112
+2026/10/29-02:32:05.432 234 Compacting 4@0 + 1@1 files
+2026/10/29-02:32:05.436 234 Generated table #116@0: 2243 keys, 30631 bytes
+2026/10/29-02:32:05.436 234 Compacted 4@0 + 1@1 files => 30631 bytes
+2026/10/29-02:32:05.437 234 compacted to: files[ 0 1 1 0 0 0 0 ]
+2026/10/29-02:32:05.437 234 Delete type=2 #106
+2026/10/29-02:32:05.437 234 Delete type=2 #109
+2026/10/29-02:32:05.437 234 Delete type=2 #111
+2026/10/29-02:32:05.437 234 Delete type=2 #113
+2026/10/29-02:32:05.437 234 Delete type=2 #115
+2026/10/29-04:24:29.059 3380 Level-0 table #118: started
+2026/10/29-04:24:29.067 3380 Level-0 table #118: 16517 bytes OK
+2026/10/29-04:24:29.068 3380 Delete type=0 #114
+2026/10/29-05:44:04.125 3380 Level-0 table #120: started
+2026/10/29-05:44:04.138 3380 Level-0 table #120: 15324 bytes OK
+2026/10/29-05:44:04.139 3380 Delete type=0 #117
+2026/10/29-08:32:54.816 3380 Level-0 table #122: started
+2026/10/29-08:32:54.824 3380 Level-0 table #122: 15537 bytes OK
+2026/10/29-08:32:54.825 3380 Delete type=0 #119
+2026/10/29-09:20:33.485 3380 Level-0 table #124: started
+2026/10/29-09:20:33.497 3380 Level-0 table #124: 18201 bytes OK
+2026/10/29-09:20:33.498 3380 Delete type=0 #121
+2026/10/29-09:20:33.499 3380 Compacting 4@0 + 1@1 files
+2026/10/29-09:20:33.503 3380 Generated table #125@0: 2414 keys, 34177 bytes
+2026/10/29-09:20:33.503 3380 Compacted 4@0 + 1@1 files => 34177 bytes
+2026/10/29-09:20:33.504 3380 compacted to: files[ 0 1 1 0 0 0 0 ]
+2026/10/29-09:20:33.504 3380 Delete type=2 #116
+2026/10/29-09:20:33.504 3380 Delete type=2 #118
+2026/10/29-09:20:33.505 3380 Delete type=2 #120
+2026/10/29-09:20:33.505 3380 Delete type=2 #122
+2026/10/29-09:20:33.505 3380 Delete type=2 #124

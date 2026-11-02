@@ -1,0 +1,173 @@
+{% extends "base.html" %}
+
+{% block title %}It's Done{% endblock %}
+{% block page_title %}It's Done — Booked Confirmations & Official Receipts{% endblock %}
+
+{% block content %}
+<!-- Summary Stats Cards -->
+<div class="stats-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 24px;">
+    <div class="stat-card" style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 12px; padding: 20px;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div>
+                <div style="font-size: 13px; color: var(--text-muted); font-weight: 500; text-transform: uppercase;">Total Booked</div>
+                <div style="font-size: 28px; font-weight: 700; color: #2E7D32; margin-top: 4px;">{{ confirmations|length }}</div>
+            </div>
+            <div style="font-size: 32px;">🎉</div>
+        </div>
+        <div style="font-size: 12px; color: var(--text-secondary); margin-top: 8px;">OFC + Consular Complete</div>
+    </div>
+
+    <div class="stat-card" style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 12px; padding: 20px;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div>
+                <div style="font-size: 13px; color: var(--text-muted); font-weight: 500; text-transform: uppercase;">PDF Receipts</div>
+                <div style="font-size: 28px; font-weight: 700; color: var(--accent-gold); margin-top: 4px;">{{ confirmations|length }}</div>
+            </div>
+            <div style="font-size: 32px;">📄</div>
+        </div>
+        <div style="font-size: 12px; color: var(--text-secondary); margin-top: 8px;">Saved in /confirmations</div>
+    </div>
+
+    <div class="stat-card" style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 12px; padding: 20px;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div>
+                <div style="font-size: 13px; color: var(--text-muted); font-weight: 500; text-transform: uppercase;">Automation Status</div>
+                <div style="font-size: 24px; font-weight: 700; color: var(--text-primary); margin-top: 4px;">Active</div>
+            </div>
+            <div style="font-size: 32px;">⚡</div>
+        </div>
+        <div style="font-size: 12px; color: var(--text-secondary); margin-top: 8px;">Auto-Downloaded upon booking</div>
+    </div>
+</div>
+
+<!-- Main Table Card -->
+<div class="card">
+    <div class="card-header" style="display: flex; justify-content: space-between; align-items: center; padding: 18px 24px; border-bottom: 1px solid var(--border-color);">
+        <div class="card-title">
+            <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">Official Appointment Confirmations</h3>
+            <p style="font-size: 13px; color: var(--text-muted); margin: 0;">Verified appointment receipts captured directly from the US Visa portal</p>
+        </div>
+        <div style="display: flex; gap: 10px;">
+            <a href="{{ url_for('export_confirmations_csv') }}" 
+               class="btn btn-download-report btn-sm" 
+               onclick="{% if not confirmations or confirmations|length == 0 %}event.preventDefault(); alert('No data found to download report.');{% endif %}"
+               style="background: #FFFFFF !important; color: #2F2A24 !important; border: 1px solid var(--border-color); font-weight: 600; box-shadow: 0 1px 3px rgba(0,0,0,0.06); text-decoration: none;">
+                <span>📥</span> Download Report
+            </a>
+            <button class="btn btn-secondary btn-sm" onclick="location.reload()" style="display: flex; align-items: center; gap: 6px;">
+                <span>🔄</span> Refresh
+            </button>
+        </div>
+    </div>
+
+
+    <!-- Live Search Bar -->
+    <div style="background: var(--bg-surface); display: flex; align-items: center; gap: 12px; padding: 12px 24px; border-bottom: 1px solid var(--border-color);">
+        <span style="color: var(--text-muted); font-size: 16px;">🔍</span>
+        <input type="text" id="confirmationSearch" class="form-control"
+            placeholder="Search by applicant name, username, city, booked date, or confirmation ID..."
+            onkeyup="filterConfirmationTable(this.value)"
+            style="max-width: 550px; background: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-primary); border-radius: 8px; padding: 8px 14px; font-size: 14px; width: 100%;">
+        <span id="searchCount" style="font-size: 13px; color: var(--text-muted); margin-left: auto;">Showing {{ confirmations|length }} confirmation(s)</span>
+    </div>
+
+    <!-- Confirmations Table -->
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table" id="confirmations-table" style="width: 100%; border-collapse: collapse;">
+                <thead>
+                    <tr style="background: var(--bg-card); text-align: left; border-bottom: 1px solid var(--border-color);">
+                        <th style="padding: 12px 16px; font-size: 13px; font-weight: 600;">ID</th>
+                        <th style="padding: 12px 16px; font-size: 13px; font-weight: 600;">Customer / Username</th>
+                        <th style="padding: 12px 16px; font-size: 13px; font-weight: 600;">OFC Booked City</th>
+                        <th style="padding: 12px 16px; font-size: 13px; font-weight: 600;">OFC Booked Date & Time</th>
+                        <th style="padding: 12px 16px; font-size: 13px; font-weight: 600;">Consular Booked City</th>
+                        <th style="padding: 12px 16px; font-size: 13px; font-weight: 600;">Consular Booked Date & Time</th>
+                        <th style="padding: 12px 16px; font-size: 13px; font-weight: 600;">Status</th>
+                        <th style="padding: 12px 16px; font-size: 13px; font-weight: 600; text-align: right;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in confirmations %}
+                    <tr class="conf-row" style="border-bottom: 1px solid var(--border-color); transition: background 0.15s ease;">
+                        <td style="padding: 14px 16px;">
+                            <code style="background: var(--accent-gold-subtle); color: var(--accent-gold); padding: 2px 6px; border-radius: 4px; font-weight: 600;">#{{ item.id }}</code>
+                        </td>
+                        <td style="padding: 14px 16px;">
+                            <strong style="font-size: 15px; color: var(--text-primary);">{{ item.customer_name or item.username }}</strong>
+                            <br><small style="color: var(--text-muted); font-family: var(--font-mono);">{{ item.username }}</small>
+                        </td>
+                        <td style="padding: 14px 16px;">
+                            <span class="badge" style="background: rgba(25, 118, 210, 0.12); color: #1976D2; font-weight: 600; padding: 4px 8px; border-radius: 6px;">{{ item.ofc_city }}</span>
+                        </td>
+                        <td style="padding: 14px 16px;">
+                            <strong style="color: var(--text-primary); font-family: var(--font-mono);">{{ item.ofc_date|dt_fmt }}</strong>
+                        </td>
+                        <td style="padding: 14px 16px;">
+                            <span class="badge" style="background: rgba(184, 134, 11, 0.12); color: var(--accent-gold); font-weight: 600; padding: 4px 8px; border-radius: 6px;">{{ item.consular_city }}</span>
+                        </td>
+                        <td style="padding: 14px 16px;">
+                            <strong style="color: var(--text-primary); font-family: var(--font-mono);">{{ item.consular_date|dt_fmt }}</strong>
+                        </td>
+                        <td style="padding: 14px 16px;">
+                            <span style="background: #2E7D32; color: #FFFFFF; font-weight: 700; padding: 4px 10px; border-radius: 6px; font-size: 12px; display: inline-flex; align-items: center; gap: 4px; letter-spacing: 0.5px;">
+                                BOOKED &#x2705;
+                            </span>
+                        </td>
+                        <td style="padding: 14px 16px; text-align: right;">
+                            {% if item.pdf_filename %}
+                            <a href="{{ url_for('download_confirmation_pdf', filename=item.pdf_filename) }}"
+                               target="_blank"
+                               class="btn btn-primary btn-sm"
+                               style="display: inline-flex; align-items: center; gap: 6px; text-decoration: none; padding: 6px 14px; border-radius: 6px; font-weight: 500; font-size: 13px;">
+                                <span>&#x1F441;&#xFE0F;</span> View PDF
+                            </a>
+                            {% else %}
+                            <span style="color: var(--text-muted); font-size: 13px;">No PDF</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% else %}
+                    <tr id="empty-row">
+                        <td colspan="8" style="padding: 48px 16px; text-align: center; color: var(--text-muted);">
+                            <div style="font-size: 40px; margin-bottom: 12px;">📑</div>
+                            <h4 style="font-size: 16px; color: var(--text-secondary); margin-bottom: 6px;">No Booked Confirmations Yet</h4>
+                            <p style="font-size: 13px; max-width: 460px; margin: 0 auto;">
+                                When an account completes both OFC and Consular appointment booking, the official PDF receipt will be downloaded automatically and presented here.
+                            </p>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+function filterConfirmationTable(query) {
+    var filter = query.toLowerCase().trim();
+    var table = document.getElementById("confirmations-table");
+    if (!table) return;
+    var rows = table.getElementsByClassName("conf-row");
+    var visible = 0;
+
+    for (var i = 0; i < rows.length; i++) {
+        var text = rows[i].textContent || rows[i].innerText;
+        if (text.toLowerCase().indexOf(filter) > -1) {
+            rows[i].style.display = "";
+            visible++;
+        } else {
+            rows[i].style.display = "none";
+        }
+    }
+
+    var countElem = document.getElementById("searchCount");
+    if (countElem) {
+        countElem.textContent = "Showing " + visible + " confirmation(s)";
+    }
+}
+</script>
+{% endblock %}

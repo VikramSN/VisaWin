@@ -1,0 +1,22 @@
+{
+  "cohort": "MID",
+  "chrome_version": "126.0.6478.183",
+  "major": "126",
+  "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.6478.183 Safari/537.36",
+  "platform": "Windows",
+  "platform_version": "15.0.0",
+  "brands": [
+    {
+      "brand": "Not/A)Brand",
+      "version": "8"
+    },
+    {
+      "brand": "Chromium",
+      "version": "126"
+    },
+    {
+      "brand": "Google Chrome",
+      "version": "126"
+    }
+  ]
+}

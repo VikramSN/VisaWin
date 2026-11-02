@@ -1,0 +1,27 @@
+2026/10/28-21:22:36.813 411c Reusing MANIFEST D:\Projects\US_VISA\Us_Visa_Bot_without API\si_visa_wo_api\chrome_profile_agarw245\Default\Session Storage/MANIFEST-000001
+2026/10/28-21:22:36.815 411c Recovering log #149
+2026/10/28-21:22:36.817 411c Reusing old log D:\Projects\US_VISA\Us_Visa_Bot_without API\si_visa_wo_api\chrome_profile_agarw245\Default\Session Storage/000149.log 
+2026/10/28-22:20:04.501 6a54 Level-0 table #153: started
+2026/10/28-22:20:04.505 6a54 Level-0 table #153: 15733 bytes OK
+2026/10/28-22:20:04.507 6a54 Delete type=0 #149
+2026/10/29-01:03:52.456 411c Level-0 table #155: started
+2026/10/29-01:03:52.463 411c Level-0 table #155: 17639 bytes OK
+2026/10/29-01:03:52.464 411c Delete type=0 #152
+2026/10/29-03:43:14.336 411c Level-0 table #157: started
+2026/10/29-03:43:14.340 411c Level-0 table #157: 15488 bytes OK
+2026/10/29-03:43:14.341 411c Delete type=0 #154
+2026/10/29-03:43:14.341 411c Compacting 4@0 + 1@1 files
+2026/10/29-03:43:14.346 411c Generated table #158@0: 3212 keys, 42763 bytes
+2026/10/29-03:43:14.346 411c Compacted 4@0 + 1@1 files => 42763 bytes
+2026/10/29-03:43:14.347 411c compacted to: files[ 0 1 1 0 0 0 0 ]
+2026/10/29-03:43:14.347 411c Delete type=2 #148
+2026/10/29-03:43:14.347 411c Delete type=2 #150
+2026/10/29-03:43:14.347 411c Delete type=2 #153
+2026/10/29-03:43:14.347 411c Delete type=2 #155
+2026/10/29-03:43:14.347 411c Delete type=2 #157
+2026/10/29-06:22:12.126 411c Level-0 table #160: started
+2026/10/29-06:22:12.138 411c Level-0 table #160: 17850 bytes OK
+2026/10/29-06:22:12.139 411c Delete type=0 #156
+2026/10/29-07:37:25.717 411c Level-0 table #162: started
+2026/10/29-07:37:25.721 411c Level-0 table #162: 16460 bytes OK
+2026/10/29-07:37:25.722 411c Delete type=0 #159

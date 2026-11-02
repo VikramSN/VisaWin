@@ -1,0 +1,40 @@
+{
+  "is_active": true,
+  "cooldown": 180,
+  "gap": 90,
+  "instant_booking": true,
+  "rest_minutes": 60.0,
+  "global_last_poll": 1793246900.3359182,
+  "poll_finished_at": 1793246900.3359182,
+  "active_poller": "RAHULBHARDWAJ.USA",
+  "active_poller_since": 1793246940.4610443,
+  "last_poller": "dineshkumar.usa",
+  "current_turn": "RAHULBHARDWAJ.USA",
+  "turn_assigned_at": 1793246900.3359182,
+  "consecutive_429s": 0,
+  "rate_limit_until": 0,
+  "registered_monitors": {
+    "dineshkumar.usa": 1793246980.5148687,
+    "cherkala00000.usa": 1793246980.5295947,
+    "RAHULBHARDWAJ.USA": 1793246940.4548306,
+    "Sarthak3": 1793246980.4518247
+  },
+  "account_quota_cooldowns": {
+    "manishongc": 1793248628.3075936,
+    "agarw245": 1793249014.3269942,
+    "Bhavishya001": 1793249403.0486498,
+    "gurdeepkaur194625": 1793250264.678285
+  },
+  "last_swap": {
+    "time": 1793246664.678285,
+    "demoted": {
+      "username": "gurdeepkaur194625",
+      "customer": "gurdeepkaur194625"
+    },
+    "promoted": {
+      "username": "Sarthak3",
+      "customer": "Sarthak3"
+    },
+    "reason": "Portal viewing quota (HTTP 429 Dynamics 365 limit): CHENNAI: HTTP 429 [Title: \"Visa Application Home &nbsp;\u00b7 Customer Self-Service\"] Visa Application Home &nbsp;\u00b7 Customer Self-Service                html {         display: none;     }          .usa-banner {         background-color: rgba(240"
+  }
+}

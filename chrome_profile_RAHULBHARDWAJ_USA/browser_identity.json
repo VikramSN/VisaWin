@@ -1,0 +1,22 @@
+{
+  "cohort": "MID",
+  "chrome_version": "128.0.6613.138",
+  "major": "128",
+  "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.6613.138 Safari/537.36",
+  "platform": "Windows",
+  "platform_version": "15.0.0",
+  "brands": [
+    {
+      "brand": "Chromium",
+      "version": "128"
+    },
+    {
+      "brand": "Not;A=Brand",
+      "version": "24"
+    },
+    {
+      "brand": "Google Chrome",
+      "version": "128"
+    }
+  ]
+}

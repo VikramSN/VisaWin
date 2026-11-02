@@ -1,0 +1,18 @@
+2026/10/28-15:33:49.961 2168 Reusing MANIFEST D:\Projects\US_VISA\Us_Visa_Bot_without API\si_visa_wo_api\chrome_profile_agarw245\Default\Session Storage/MANIFEST-000001
+2026/10/28-15:33:49.966 2168 Recovering log #143
+2026/10/28-15:33:49.968 2168 Reusing old log D:\Projects\US_VISA\Us_Visa_Bot_without API\si_visa_wo_api\chrome_profile_agarw245\Default\Session Storage/000143.log 
+2026/10/28-16:45:14.538 2168 Level-0 table #147: started
+2026/10/28-16:45:14.543 2168 Level-0 table #147: 17258 bytes OK
+2026/10/28-16:45:14.544 2168 Delete type=0 #143
+2026/10/28-16:45:14.544 2168 Compacting 4@0 + 1@1 files
+2026/10/28-16:45:14.549 2168 Generated table #148@0: 3040 keys, 41518 bytes
+2026/10/28-16:45:14.549 2168 Compacted 4@0 + 1@1 files => 41518 bytes
+2026/10/28-16:45:14.549 2168 compacted to: files[ 0 1 1 0 0 0 0 ]
+2026/10/28-16:45:14.550 2168 Delete type=2 #136
+2026/10/28-16:45:14.550 2168 Delete type=2 #139
+2026/10/28-16:45:14.550 2168 Delete type=2 #142
+2026/10/28-16:45:14.550 2168 Delete type=2 #144
+2026/10/28-16:45:14.550 2168 Delete type=2 #147
+2026/10/28-17:39:48.950 2168 Level-0 table #150: started
+2026/10/28-17:39:48.956 2168 Level-0 table #150: 18029 bytes OK
+2026/10/28-17:39:48.957 2168 Delete type=0 #146
